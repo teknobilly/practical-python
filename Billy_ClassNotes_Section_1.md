@@ -562,6 +562,55 @@ ValueError: invalid literal for int() with base 10: 'N/A'
 ```
 - The default behaviour dumps the running script and displays the error information
 
+### Catching and handling Exceptions
+- try: except:  
+```python
+>>> def divide(dividend, divisor):
+...     try:
+...             print(dividend / divisor)
+...     except:
+...             print('You cannot divide by 0')
+... 
+>>> divide(dividend=10,divisor=5)
+2.0
+>>> divide(dividend=5, divisor=10)
+0.5
+>>> divide(dividend=5, divisor=0)
+You cannot divide by 0
+```
+- Python has many types of errors: [Built-in exceptions](https://docs.python.org/3/library/exceptions.html)
+
+### Raising Exceptions
+```python
+>>> raise RuntimeError('What a kerfuffle')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+RuntimeError: What a kerfuffle
+```
+
+### Using Library Functions - csv
+```python
+>>> import csv
+>>> f = open('Data/portfolio.csv')
+>>> rows = csv.reader(f)
+>>> headers = next(rows)  # Next is a function> next(iterator) - An iterator is an Object
+>>> headers
+['name', 'shares', 'price']
+>>> for row in rows:
+...     print(row)
+... 
+['AA', '100', '32.20']
+['IBM', '50', '91.10']
+['CAT', '150', '83.44']
+['MSFT', '200', '51.23']
+['GE', '95', '40.37']
+['MSFT', '50', '65.10']
+['IBM', '100', '70.44']
+```
+Note: sys.argv is a list containing the passed arguments from the command line
+` filename = sys.argv[1] `
+
+
 
 
 
