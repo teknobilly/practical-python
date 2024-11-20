@@ -65,8 +65,21 @@ Tuples look like read-only lists.  Tuples most oftern used for a single item con
 record = ('GOOG', 100, 490.1)        # A tuple of a single entry
 symbols = [ 'GOOG', 'AAPL', 'IBM' ]   # A List of same types
 ```
+### Working with Tuples
+Tuples are different from lists because they are immutable, or static.  Once created the values of table cannot be changed or appended.  Tuples are memory efficient ways of handling data.   
+
+If data needs to be munged then the tuple() should be converted to a list()
+Use the functions tuple() and list() to cast a container to another type:
+```python
+tuple_names   = ('first', 'second', '3rd', 4 )# A tuple
+list_names    = list(tuple_names)     # the tuple is now a list in list_names.  Both exist.
+list_names[3] = '4th'               # Munge the data
+tuple_names  = tuple(list_names)    # the names tuple has been munged
+```
+
 
 ### Dictionaries
+Dictionaries are for holding key value pairs, one doesn't munge in a dictionary.  You can remove and add key:values.  There are dictionary methods for cleaning up dictionary entries.
 Maps Keys and Values, aka Hash Table or Associative array
 ```Python
  s = {
@@ -189,7 +202,8 @@ else:
 `dict.get(key, default) ` Use a default value incase there is no value
 
 ### Sets
-Sets are collection of unordered unique items
+Sets are collection of unordered unique items.  Sets are for unique entries.   You would not store data in sets, more likely for a list of tags, or column names.  Set items can be added, removed, joined, intersected, and differenced.
+
 ```python
 tech_stocks = { 'IBM', 'AAPL', 'MSFT' }
 # Alternative syntax
@@ -223,7 +237,46 @@ s3
 
 *That's all for tonight folks!*  22:10:00 Nov 17 2024
 
-## Section 2.3
+## Section 2.3 - Formating with f-strings
+Use f-strings to format data output into tables in a cli shell
+
+### Formating codes in strings
+```python
+>>> cats = ['Rusty', 'Opie', 'Chico', 'Pepper', 'Panda']        # A list of cats
+>>> for index,name in enumerate(cats):                         # pulling index with enumerate()
+...     print(f'# My {index:>3d}st Cat\'s name was {name:<10s}')  # Formatted printing
+... 
+# My   0st Cat's name was Rusty     
+# My   1st Cat's name was Opie      
+# My   2st Cat's name was Chico     
+# My   3st Cat's name was Pepper    
+# My   4st Cat's name was Panda 
+```
+
+There are various codes you can use to format an output field
+```
+ s - String
+ c - char
+ d - decimal integer (ints)
+ b - binary
+ x - Hexadecimal
+ f - Float [-]00.000...
+ e - Float [-]00.00000+-xx
+ g - Floar, but with E notation
+```
+and field modifiers
+```
+:>10d - field is 10 wide, type integer, aligned to right
+:<10d - field is 10 wide, type integer, aligned left
+:^10d - field is 10 wide, type integer, centered in field
+:10.2f - field is 10 wide, with 2 decimal point precision
+```
+
+[C++ fprint() formating is also available](https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting)
+
+
+
+
 
 
 

@@ -383,6 +383,9 @@ rs = r'c:\newdata\test'  #  Raw ininterpreted backslashes
 
 # 1.5 Lists - 14:18 Sunday Nov 17
 ### Pythons primary type for holding an ordered collection of values
+Lists are most like an array from javascript.   Arrays in Python can only contain one data type.  Where as lists and tuples can hold anything.  Lists of tuples for example.
+
+Lists also have many operation methods for working with the data.  Review the Python cheatsheet when working on munging lists.
 
 ### Creating a List
 ```python
@@ -472,6 +475,9 @@ s.sort()  # [1,3,7,10]
 - they can be joined with each other
 - **Warning** - Lists of different types are a bad idea
 
+### Lists vs Tuples
+In section 2.  I review tuples and show how the two differ.
+
 # Section 1.6 - File Management - Nov 17 15:23:00  
 ### Open a file
 ```python
@@ -489,10 +495,14 @@ f.write('text writing to file')
 
 # Close the files
 f.close()
-
+# OOPS! I forgot to close g
+g.close()
 ```
 
 ### Common idioms for reading a file
+Use the with command for reading files, this is a safer way of reading files.   When the with block is done the file will close automatically. 
+>This is because the with statement calls 2 built-in methods behind the scene – __enter()__ and __exit()__.
+>The __exit()__ method closes the file when the operation you specify is done.
 ```python
 # Read whole file as string
 with open('foo.txt', 'rt') as file:
